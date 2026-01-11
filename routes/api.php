@@ -8,6 +8,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::resource('products', ProductController::class);
 
-Route::post('/products', [ProductController::class, 'store']);
+// Route::get('/products', [ProductController::class, 'index']);
+
+// Route::post('/products', [ProductController::class, 'store']);
