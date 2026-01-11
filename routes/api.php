@@ -10,6 +10,8 @@ Route::get('/user', function (Request $request) {
 
 Route::resource('products', ProductController::class);
 
+Route::get('/products/search/{name}', [ProductController::class, 'search']);
+
 // Route::get('/products', [ProductController::class, 'index']);
 
 // Route::post('/products', [ProductController::class, 'store']);

@@ -42,7 +42,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->update($request->all());
+        return $product;
     }
 
     /**
@@ -50,6 +52,17 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Product::destroy($id);
+    }
+
+    /**
+     * Search for a specified resource from storage.
+     * 
+     * @param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search(string $name)
+    {
+        return Product::where('name', 'like', '%' . $name . '%')->get();
     }
 }
